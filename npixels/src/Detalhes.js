@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-    
+import NavBar from './navBar.js';
+
 class Detalhes extends Component {
+    
     render() {
+        const {noticiaSelecionada} = this.props;
         return (
             <div>
-              <h1>Cruzeiro 1 x 0 Palmeiras</h1>
+                <NavBar />
+              <h1>{noticiaSelecionada.titulo}</h1>
               <p>Supervisor: Tarley Lana</p>
-              <p>
-                Cruzeiro Esporte Clube é uma 
-                associação polidesportiva brasileira, 
-                com sede em Belo Horizonte, considerado 
-                o maior clube de futebol no estado de 
-                Minas Gerais.
-              </p>
+              <p>{noticiaSelecionada.texto}</p>
               <p>Tags: Esporte, Cruzeiro, Libertadores</p>
               <Link to='/' className='btn btn-info'>Voltar</Link>
             </div>    

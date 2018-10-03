@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
 //import logo from './logo.svg';
 import './App.css';
-import {
-  //Button,
-  Navbar, 
-  NavbarBrand
-} from 'reactstrap';
+import NavBar from './navBar.js';
 import UltimasEdicoes from './UltimasEdicoes.js';
 import Detalhes from './Detalhes.js';
 import ListaNoticias from './ListaNoticias.js';
@@ -53,27 +49,18 @@ class App extends Component {
     ]}
   
  selecionarNoticia =  (noticia) => {
-    console.log(noticia);
     this.setState(
       {
         noticiaSelecionada: noticia
-      }  
-  );
-  
-  console.log (this.state.noticiaSelecionada);
+      });
   }
   
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">
-            <img src="/img/logo.png"
-              alt="NPixels"></img>
-          </NavbarBrand>
-        </Navbar>
         <Route exact path='/' render={() => 
           <div>
+              <NavBar />
               <UltimasEdicoes />
               <ListaNoticias 
                   noticias={this.state.noticias}
@@ -81,7 +68,8 @@ class App extends Component {
           </div>
         }/>
         <Route path='/detalhes' render={() =>
-          <Detalhes />
+          <Detalhes 
+          noticiaSelecionada = {this.state.noticiaSelecionada}/>
         }/>
       </div>
     );
