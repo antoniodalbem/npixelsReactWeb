@@ -3,10 +3,10 @@ import { UncontrolledCarousel } from 'reactstrap';
 
 const items = [
   {
-    src: 'https://raw.githubusercontent.com/chuanshuoge1/reactstrap/gh-pages/image/1.png',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
-    header: 'Slide 1 Header'
+    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/kabum01.jpg',
+    altText: 'Mundial de LoL 2018',
+    caption: 'KaBuM! perde para DFM no desempate e é eliminada',
+    header: 'Mundial de LoL 2018'
   },
   {
     src: 'kabum01.jpg',

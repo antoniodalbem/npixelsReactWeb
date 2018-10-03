@@ -12,7 +12,7 @@ class ListaNoticias extends Component {
           {noticias.map( n =>
             <Media>
                <Media left href="#">
-                <img src={n.icone} alt="React image">
+                <img src={n.icone} alt={n.titulo}>
                 </img>
               </Media>
               <Media body>
