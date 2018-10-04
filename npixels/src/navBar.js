@@ -10,7 +10,7 @@ class navBar extends Component {
             <div>
                 <Navbar color="light" light expand="md">
                     <NavbarBrand href="/">
-                        <img src="/img/logo.png" alt="NPixels"></img>
+                        <img src="/img/logo.png" alt="NPixels" className="logoPrincipal"></img>
                     </NavbarBrand>
                 </Navbar>
             </div>

@@ -1,27 +1,101 @@
-import React from 'react';
-import { UncontrolledCarousel } from 'reactstrap';
+import React, { Component } from 'react';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+}
+from 'reactstrap';
 
-const items = [
-  {
+
+const items = [{
     src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/kabum01.jpg',
     altText: 'Mundial de LoL 2018',
     caption: 'KaBuM! perde para DFM no desempate e é eliminada',
     header: 'Mundial de LoL 2018'
   },
   {
-    src: 'kabum01.jpg',
+    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/overwatch01.jpg',
     altText: 'Slide 2',
-    caption: 'Slide 2',
-    header: 'Slide 2 Header'
+    caption: 'BlizzCon acontece nos dias 2 e 3 de novembro; oito times decidirão o campeão da OWC 2018',
+    header: 'Blizzard revela calendário final da Overwatch World Cup na BlizzCon 2018'
   },
   {
-    src: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E',
-    altText: 'Slide 3',
-    caption: 'Slide 3',
-    header: 'Slide 3 Header'
+    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/youtubePremim.jpg',
+    altText: 'YouTube Premium: como criar uma assinatura e testar grátis',
+    caption: 'Teste a versão paga do serviço gratuitamente durante três meses',
+    header: 'YouTube Premium: como criar uma assinatura e testar grátis'
   }
 ];
 
-const UltimasEdicoes = () => <UncontrolledCarousel items={items} />;
+class UltimasEdicoes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
+  }
+
+  onExiting() {
+    this.animating = true;
+  }
+
+  onExited() {
+    this.animating = false;
+  }
+
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
+
+  render() {
+    const { activeIndex} = this.state;
+
+    const slides = items.map((item) => {
+      return (
+        <CarouselItem
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={item.src}
+          onClickHandler={this.goToIndex}
+        >
+          <img src={item.src} alt={item.altText} />
+          <CarouselCaption captionText={item.caption} captionHeader={item.caption}
+          />
+        </CarouselItem>
+      );
+    });
+
+    return (
+      <Carousel
+        activeIndex={activeIndex}
+        next={this.next}
+        previous={this.previous}
+      >
+        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+        {slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+      </Carousel>
+    );
+  }
+}
 
 export default UltimasEdicoes;
