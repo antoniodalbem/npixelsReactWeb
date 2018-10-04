@@ -10,19 +10,19 @@ from 'reactstrap';
 
 
 const items = [{
-    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/kabum01.jpg',
+    src: './img/kabum01.jpg',
     altText: 'Mundial de LoL 2018',
     caption: 'KaBuM! perde para DFM no desempate e é eliminada',
     header: 'Mundial de LoL 2018'
   },
   {
-    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/overwatch01.jpg',
+    src: './img/overwatch01.jpg',
     altText: 'Slide 2',
     caption: 'BlizzCon acontece nos dias 2 e 3 de novembro; oito times decidirão o campeão da OWC 2018',
     header: 'Blizzard revela calendário final da Overwatch World Cup na BlizzCon 2018'
   },
   {
-    src: 'https://raw.githubusercontent.com/antoniodalbem/npixelsReactWeb/master/npixels/public/img/youtubePremim.jpg',
+    src: './img/youtubePremim.jpg',
     altText: 'YouTube Premium: como criar uma assinatura e testar grátis',
     caption: 'Teste a versão paga do serviço gratuitamente durante três meses',
     header: 'YouTube Premium: como criar uma assinatura e testar grátis'

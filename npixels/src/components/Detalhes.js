@@ -17,7 +17,7 @@ class Detalhes extends Component {
                           <div className='conteudoNoticia'>
                               <p className='font-italic'>Supervisor: Tarley Lana</p>
                               <p>{noticiaSelecionada.texto}</p>
-                              <p className='font-weight-bold'>Tags: </p><p>{noticiaSelecionada.tags}</p>
+                              <small className='font-italic'>Tags: {noticiaSelecionada.tags}</small>
                               <Link to='/' className='btn btn-info float-right'>Voltar</Link>
                             </div>
                         </Col>
@@ -26,7 +26,5 @@ class Detalhes extends Component {
             </div>
         );
     }
-    
 }
-
 export default Detalhes;

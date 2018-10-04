@@ -56,3 +56,8 @@ body {
 .conteudoNoticia {
   margin-top: 20px;
 }
+
+.textoData {
+  color: #959dad;
+  font-size: small;
+}

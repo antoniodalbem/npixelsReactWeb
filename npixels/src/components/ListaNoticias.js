@@ -23,8 +23,9 @@ class ListaNoticias extends Component {
                             <Link to='/detalhes'
                                 onClick={() => selecionarNoticia(n)}>{n.titulo}
                             </Link>
+                            <small className="float-right textoData">{n.data}</small>
                         </Media>
-                        {n.resumo}
+                        <p className="clearfix float-left">{n.resumo}</p>
                       </Media>
                     </Media>
                     )}
@@ -34,5 +35,4 @@ class ListaNoticias extends Component {
         );
     }
 }
-
 export default ListaNoticias;
